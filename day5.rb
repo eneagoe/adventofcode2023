@@ -6,8 +6,11 @@ input = File.open(ARGV[0])
 seeds = input.readline.scan(/\d+/).map(&:to_i)
 mapping = Hash[seeds.zip(seeds)]
 
+input.readline
+
 7.times do
-  2.times { input.readline }
+  input.readline
+
   while !input.eof? && ((line = input.readline) !~ /^\s*$/)
     destination, source, size = line.split(/\s+/).map(&:to_i)
 
