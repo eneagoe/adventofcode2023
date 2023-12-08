@@ -16,6 +16,7 @@ until input.eof
   }
 end
 
+# first puzzle
 steps = 0
 at = 'AAA'
 
@@ -24,5 +25,22 @@ while at != 'ZZZ'
   steps += 1
 end
 
-# first puzzle
 puts steps
+
+# second puzzle
+
+steps = 0
+locations = d.keys.select { _1.end_with? 'A' }
+
+locations.map! do |at|
+  steps = 0
+
+  until at.end_with?('Z')
+    at = d[at][moves[steps % n]]
+    steps += 1
+  end
+
+  steps
+end
+
+puts locations.reduce(:lcm)
