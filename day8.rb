@@ -28,7 +28,8 @@ end
 puts steps
 
 # second puzzle
-
+# this only works because the input is specially crafted: paths from locations
+# ending in A to locations ending in Z are loops.
 steps = 0
 locations = d.keys.select { _1.end_with? 'A' }
 
